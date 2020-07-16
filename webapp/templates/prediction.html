@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/1200px-Heart_coraz%C3%B3n.svg.png" type="image/x-icon"/>
+    
+  <title>Check your love percentage</title>
+</head>
+<body>
+</html>
+{% extends 'menubar.html' %}
+{% load static %}
+<html>
+{% block content %}
+  <head>
+<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+<style type="text/css">
+body{
+    background-image: url(' {% static 'images/purple.jpg' %} ');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+  }
+  h1,h2,h3,h4,h5{
+  	color: white;
+  }
+
+</style>
+</head>
+<body>
+		
+	<div class="container">
+		{% for message in messages %}<br><br><br><br>
+				<div class="card text-light bg-dark mb-3">
+				  <div class="card-header"></div>
+				  <div class="card-body">
+				    <h5 class="card-title">{{message}}</h5>
+				    <p class="card-text">Click on the Button Below</p>
+				    <a href="{% url 'result' %}" class="btn btn-warning btn-block">Results</a>
+				  </div>
+				</div>
+			{% endfor %}
+ <br><br><br>
+	
+</div>
+<div class="card" style="background-image: url(' {% static 'images/bg.jpeg' %} '); background-repeat: no-repeat;">
+  <div class="card-body">
+  	<img src="{% static 'images/month.jpg' %}" class="card-img-top" alt="...">
+  	<small class="muted">See the Zodiac Chart on the Image above and identify birthday falls on to which Zodiac star..!!</small>
+    <h5 class="card-title"><h2 style="color: white;">Fill up the details</h2></h5>
+
+    <form method="POST">
+ 	{% csrf_token %}
+  <div class="form-group row">
+    <label for="name" class="col-sm-2 col-form-label">Your Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" required="True" name="your_name" placeholder="Your Name">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="phone" class="col-sm-2 col-form-label">Your Partner's Name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" required="True" name="your_partner_name" placeholder="Your Partner's Name">
+    </div>
+  </div>
+    <div class="form-group row">
+    <label for="email" class="col-sm-2 col-form-label">Your Zodiac</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" required="True" name="your_star" placeholder="Your Zodiac">
+    </div>
+  </div>
+
+
+   <div class="form-group row">
+    <label for="email" class="col-sm-2 col-form-label" name="message">Your Partner's Zodiac</label>
+    <div class="col-sm-10">
+  	<textarea class="form-control" required="True" name="your_partner_star" placeholder="Your Partner's Zodiac"></textarea>
+    </div>
+  </div>
+     <div class="form-group row">
+    <label for="email" class="col-sm-2 col-form-label" name="message">What relationship you expect from your Partner?? </label>
+    <div class="col-sm-10">
+  	<textarea class="form-control" required="True" name="feel" placeholder="eg : Siblings,Friends,Crush,Love,Best friends,Marriage etc.."></textarea>
+    </div>
+  </div>
+<button class="btn btn-info btn-lg btn-block" name="submit">Submit</button>
+</form>
+
+  </div>
+</div>
+</body>
+{% endblock %}

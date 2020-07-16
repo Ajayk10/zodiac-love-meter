@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/1200px-Heart_coraz%C3%B3n.svg.png" type="image/x-icon"/>
+    
+  <title>Check your love percentage</title>
+</head>
+<body>
+</html>
+{% extends 'menubar.html' %}
+{% load static %}
+<html>
+{% block content %}
+  <head>
+<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+<style type="text/css">
+body{
+    background-image: url(' {% static 'images/purple.jpg' %} ');
+    background-repeat: repeat;
+    background-size: cover;
+    color: white;
+  }
+</style>
+</head><br><br><br><br>
+<br>
+<div class='container'>
+<div class="card">
+	<h2 class="card-header" style="background-color: #340269; color: white;">How far is our prediction True??</h2>
+	<div class="card-body">
+	<form method="POST">
+		{% csrf_token %}
+		   <div class="form-group row">
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control" readonly="true" required="True" name="curr_name" value="{{curr_name}}">
+		    </div><br>
+		     <div class="col-sm-10">
+		      <input type="text" class="form-control" hidden="true" required="True" name="curr_partner" value="{{curr_partner}}">
+		    </div>
+		     <div class="col-sm-10">
+		      <input type="text" class="form-control" hidden="true" required="True" name="feel" value="{{feel}}">
+		    </div>
+
+
+		    <div class="col-sm-10">
+		      <input type="text" class="form-control" required="True" name="rate" placeholder="We we'd be grateful if you give us a review..!!">
+		    </div>
+		  </div>
+		  <button class="btn btn-info btn-lg btn-block">Submit</button>
+	</form>
+</div>
+</div>
+</div>
+{% endblock %}

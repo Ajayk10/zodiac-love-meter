@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/1200px-Heart_coraz%C3%B3n.svg.png" type="image/x-icon"/>
+    
+  <title>Check your love percentage</title>
+</head>
+<body>
+</html>
+{% extends 'menubar.html' %}
+{% load static %}
+<html>
+{% block content %}
+  <head>
+<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+<style type="text/css">
+body{
+
+  }
+</style>
+</head><br><br><br><br>
+<br>
+<div class='container'>
+<div class="card">
+	<h2 class="card-header" style="background-color: #340269; color: white;">User's Details</h2>
+	<table class="table">
+	<tr>
+		<th>User Name:</th>
+		<th>Partner's Name</th>
+		<th>What they want to have</th>
+		<th>Was the prediction true??</th>
+	</tr>
+{% for x in all_item %}
+	<tr>
+		<th>{{x.curr_name}}</th>
+		<th>{{x.curr_partner}}</th>
+		<th>{{x.feel}}</th>
+		<th>{{x.rate}}</th>
+	</tr>
+{% endfor %}
+
+</table>
+</div>
+{% endblock %}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/1200px-Heart_coraz%C3%B3n.svg.png" type="image/x-icon"/>
+    
+  <title>Check your love percentage</title>
+</head>
+<body>
+</html>
+{% extends 'menubar.html' %}
+{% load static %}
+<html>
+{% block content %}
+  <head>
+<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+<style type="text/css">
+body{
+    background-image: url(' {% static 'images/bg.jpeg' %} ');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+   .int{
+  	color: #e60039;
+  }
+   h1,h3,h4,h5,p{
+  	color: black;
+  }
+  h2{
+  	color: #05a3f7;
+  }
+</style>
+</head><br>
+<br>
+	<body>
+		<div class="container">
+		{% for message in messages %}<br><br><br><br>
+		<div class="card border-dark mb-3" >
+		  <h2 class="card-header" style="background-color: #340269; color: white;">{{message}}</h2>
+		  <div class="card-body text-dark">
+		    <h5 class="card-title">Below shows the compatability of you and your partner based on Zodiac sign and Name-ology hence provides considerable amount of accuracy.</h5>
+		    <p class="card-text" style="color: grey;">[This are approximate predictions subjected to be based on very few factors..]</p>
+		  </div>
+		</div>
+			{% endfor %}
+
+<div class="card text-dark bg-light mb-3">
+	    <h2 class="card-header" style="background-color: #340269; color: white;">Your Relationship prediction</h2>
+  <div class="card-body">
+    <p class="card-text"><b>Your signs and names reveal that the position of Mercury at: {{mercury}} , Venus at: {{venus}} , Mars at: {{mars}} , Jupiter at: {{jupiter}} , Saturn at: {{saturn}} , Moon at: {{moon}} , Sun at: {{sun}}.</p><p style="color: #e60039;">Hence {{string}} {{string2}}</p></b>
+  </div>
+</div>
+
+			<div class="card">
+				<h2 class="card-header" style="background-color: #340269; color: white;">Positions Table Based on Your Relationship</h2>
+			  <div class="card-body">
+			    <table class="table table-bordered">
+			    	<tr>
+			    		<th>Mercury : <div class="int">{{mercury}}</div></th>
+			    		<th>Venus : <div class="int">{{venus}}</div></th>
+			    		<th>Mars : <div class="int">{{mars}}</div></th>
+			    		<th>Jupiter : <div class="int">{{jupiter}}</div></th>
+			    	</tr>
+			    	<tr>
+			    		<th>Saturn : <div class="int">{{saturn}}</div></th>
+			    		<th class="table-success"></div></th>
+			    		<th class="table-success"></div></th>
+			    		<th>Moon : <div class="int">{{moon}}</div></th>
+			    	</tr>
+			    	<tr>
+			    		<th>Saturn : <div class="int">{{saturn}}</div></th>
+			    		<th class="table-success"></th>
+			    		<th class="table-success"></th>
+			    		<th>Sun : <div class="int">{{sun}}</div></th>
+			    	</tr>
+			    	<tr>
+			    		<th>Mercury : <div class="int">{{mercury}}</div></th>
+			    		<th>Venus : <div class="int">{{venus}}</div></th>
+			    		<th>Mars : <div class="int">{{mars}}</div></th>
+			    		<th>Jupiter : <div class="int">{{jupiter}}</div></th>
+			    	</tr>
+			    </table>
+			  </div>
+			</div>
+</table>
+<br>
+<a href="{% url 'rate' %}" class="btn btn-warning btn-lg btn-block">Please Rate our prediction</a>
+	</body>
+{% endblock %}

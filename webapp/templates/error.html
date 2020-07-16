@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/1200px-Heart_coraz%C3%B3n.svg.png" type="image/x-icon"/>
+    
+  <title>Check your love percentage</title>
+</head>
+<body>
+</html>
+{% extends 'menubar.html' %}
+{% load static %}
+<html>
+{% block content %}
+  <head>
+<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+<style type="text/css">
+body{
+    background-image: url(' {% static 'images/purple.jpg' %} ');
+    background-repeat: repeat;
+    background-size: cover;
+  }
+   .int{
+  	color: #e60039;
+  }
+
+  h2,h1{
+  	color: white;
+    background-color: #340269;
+  }
+</style>
+</head><br><br><br><br><br><br><br><br>
+
+  <h1>Fill the prediction form before coming here..!!</h1>
+
+{% endblock %}
