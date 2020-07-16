@@ -43,12 +43,22 @@ body{
 		</div>
 			{% endfor %}
 
+
+
 <div class="card text-dark bg-light mb-3">
 	    <h2 class="card-header" style="background-color: #340269; color: white;">Your Relationship prediction</h2>
   <div class="card-body">
     <p class="card-text"><b>Your signs and names reveal that the position of Mercury at: {{mercury}} , Venus at: {{venus}} , Mars at: {{mars}} , Jupiter at: {{jupiter}} , Saturn at: {{saturn}} , Moon at: {{moon}} , Sun at: {{sun}}.</p><p style="color: #e60039;">Hence {{string}} {{string2}}</p></b>
   </div>
 </div>
+
+		<div class="card border-dark mb-3" >
+		  <h2 class="card-header" style="background-color: #340269; color: white;">{{curr_name}} & {{curr_partner}}</h2>
+		  <div class="card-body text-dark">
+		    <h5 class="card-title" style="font-size: 78px;">{{percent}}{{moon}}.{{mercury}}%</h5>
+		    <p class="card-text" style="color: ;">[This is you and your partner's chances to fall in love together...]</p>
+		  </div>
+		</div>
 
 			<div class="card">
 				<h2 class="card-header" style="background-color: #340269; color: white;">Positions Table Based on Your Relationship</h2>
@@ -83,6 +93,5 @@ body{
 			</div>
 </table>
 <br>
-<a href="{% url 'rate' %}" class="btn btn-warning btn-lg btn-block">Please Rate our prediction</a>
 	</body>
 {% endblock %}

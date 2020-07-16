@@ -8,6 +8,5 @@ urlpatterns = [
     path('prediction/', views.prediction, name="prediction"),
     path('mypanel/', views.mypanel, name="mypanel"),
     path('error/', views.error, name="error"),
-    path('rate/', views.rate, name="rate"),
     
 ]

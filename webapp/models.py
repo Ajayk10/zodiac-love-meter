@@ -17,13 +17,4 @@ class Contact(models.Model):
 		return self.your_name +'---> '+ self.your_partner_name
 
 
-class Rate(models.Model):
-	curr_name = models.CharField(max_length=20 ,null=True)
-	curr_partner = models.CharField(max_length=20 ,null=True)
-	feel = models.CharField(max_length=20 ,null=True)
-	rate = models.CharField(max_length=100 ,null=True)
-	
-
-	def __str__(self):
-		return self.curr_name +'---> '+ self.rate
 

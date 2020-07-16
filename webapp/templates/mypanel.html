@@ -28,14 +28,12 @@ body{
 		<th>User Name:</th>
 		<th>Partner's Name</th>
 		<th>What they want to have</th>
-		<th>Was the prediction true??</th>
 	</tr>
 {% for x in all_item %}
 	<tr>
-		<th>{{x.curr_name}}</th>
-		<th>{{x.curr_partner}}</th>
+		<th>{{x.your_name}}</th>
+		<th>{{x.your_partner_name}}</th>
 		<th>{{x.feel}}</th>
-		<th>{{x.rate}}</th>
 	</tr>
 {% endfor %}
 

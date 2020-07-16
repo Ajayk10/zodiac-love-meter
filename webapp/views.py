@@ -26,7 +26,7 @@ def prediction(request):
 		item=Contact.objects.all
 
 		global curr_name,curr_partner,curr_star,curr_partner_star,sun,moon,mercury,venus,jupiter,saturn,mars
-		global string,string2,feel
+		global string,string2,feel,percent
 		curr_name=request.POST.get('your_name').lower()
 		curr_partner=request.POST.get('your_partner_name').lower()
 		curr_star=request.POST.get('your_star').lower()
@@ -55,11 +55,12 @@ def prediction(request):
 		affair = (7, 15, 23, 31,88, 96, 39, 47, 55, 63, 71, 79, 87, 95)
 
 		if value in sibling:
-		    string="Based on the Sign you both have Sister-Brother relationship"
+		    string="Based on the Sign you both have Sister/Brother relationship"
 		    jupiter=1
 		    mars=3
 		    venus=5
-		    mercury=4
+		    mercury=6
+		    percent=5
 
 		elif value in friend:
 		    string="Based on the Sign you both will be good Friends"
@@ -67,6 +68,7 @@ def prediction(request):
 		    mars = 4
 		    venus = 5
 		    mercury = 12
+		    percent=6
 
 		elif value in bestfriend:
 		    string="Based on the Sign you both will be thick Best Friend"
@@ -74,13 +76,15 @@ def prediction(request):
 		    mars = 6
 		    venus = 5
 		    mercury = 2
+		    percent=7
 
 		elif value in lover:
 		    string="Based on the Sign you together have chances to be awesome Lovers"
 		    jupiter = 4
 		    mars = 5
 		    venus = 11
-		    mercury = 1
+		    mercury = 4
+		    percent=8
 
 		elif value in partner:
 		    string="Based on the Sign you together have bondings to be Partner"
@@ -88,13 +92,15 @@ def prediction(request):
 		    mars = 5
 		    venus = 10
 		    mercury = 1
+		    percent=9
 
 		elif value in marg:
 		    string="Based on the Sign you together have bondings of a Husband-Wife"
 		    jupiter = 2
 		    mars = 8
 		    venus = 4
-		    mercury = 1
+		    mercury = 3
+		    percent=9
 
 		elif value in affair:
 		    string="Based on the Sign you both can have an secretive relationship together simialar to an Affair"
@@ -102,6 +108,7 @@ def prediction(request):
 		    mars = 3
 		    venus = 8
 		    mercury = 11
+		    percent=7
 
 		#name-intimacy
 		crush = (1,8, 16, 9, 17, 25, 33, 41, 49, 57, 65, 73, 81, 89, 97)
@@ -144,7 +151,7 @@ def prediction(request):
 
 		elif compvalue in till_death:
 		    string2="and Nameology says you both will be together till last of the life "
-		    moon = 3
+		    moon = 7
 		    sun = 12
 		    saturn = 8
 
@@ -171,8 +178,8 @@ def result(request):
 		    messages.success(request,curr_name+' and '+curr_partner)
 		    context = {'sun':sun,'moon':moon,'mercury':mercury,'venus':venus,
 				'mars':mars,'jupiter':jupiter,'saturn':saturn,'string':string,'string2':string2,
-				'all_item':all_item,'curr_star':curr_star
-				}
+				'all_item':all_item,'curr_star':curr_star,'curr_name':curr_name,'curr_partner':curr_partner
+				,'percent':percent}
 		    return render(request, "result.html" ,context)
 		else:
 		    messages.warning(request,"Enter the correct Zodiac star name the entered value is inavalid..!!")
@@ -180,25 +187,9 @@ def result(request):
 	except NameError:
 		return render(request, "error.html")
 		
-def rate(request):
-	try:
-		if request.method == 'POST':
-			form = RateForm(request.POST or None)
-			if form.is_valid():
-				form.save()
-			item=Rate.objects.all
-			global infos
-			infos={'item':item,'curr_name':curr_name,'curr_partner':curr_partner,'feel':feel}
-			messages.success(request,'Thank You '+curr_name+'!! for the wonderfull review :-)')
-			return render(request, 'home.html' ,infos)
-		else:
-			item=Rate.objects.all
-			return render(request, 'rate.html' ,{'item':item,'curr_name':curr_name,'curr_partner':curr_partner,'feel':feel})
-	except NameError:
-		return render(request, "error.html")
 
 def mypanel(request):
-	all_item=Rate.objects.all
+	all_item=Contact.objects.all
 	return render(request, "mypanel.html" ,{'all_item':all_item})
 
 def error(request):
