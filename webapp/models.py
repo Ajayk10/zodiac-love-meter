@@ -11,6 +11,7 @@ class Contact(models.Model):
 	your_star = models.CharField(max_length=100,null=True)
 	your_partner_star = models.CharField(max_length=100 ,null=True)
 	feel = models.CharField(max_length=100 ,null=True)
+	time = models.CharField(max_length=100 ,null=True)
 
 
 	def __str__(self):
