@@ -15,7 +15,7 @@ class Contact(models.Model):
 
 
 	def __str__(self):
-		return self.your_name +'---> '+ self.your_partner_name
+		return self.your_name +' '+self.feel +' '+ self.your_partner_name
 
 
 
