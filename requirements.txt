@@ -31,7 +31,7 @@ tweepy==3.8.0
 urllib3==1.25.9
 virtualenv==20.0.25
 virtualenv-clone==0.5.4
-Werkzeug==1.0.1
+Werkzeug==2.2.3
 whitenoise==5.0.1
 django-phonenumber-field==4.0.0
 phonenumbers==8.12.6
